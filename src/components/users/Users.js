@@ -11,7 +11,7 @@ const Users = (props) => {
     return (
         <div className="" style={userStyle}>
             {props.userData.map(user => (
-                <UserItem userData={user} />
+                <UserItem userData={user} key={user.id} />
             ))}
         </div>
     )

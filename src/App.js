@@ -24,13 +24,14 @@ class App extends Component {
   }
 
   render() {
+    const {alert, users, loading} = this.state;
     return (
       <div className='App'>
         <Navbar title='Git Finder' icon='fab fa-github' />
         <div className='container'>
-          <Alert />
-          <Search searchUsers={this.searchUsers} showClear={(this.state.users.length > 0)?true:false} clearUsers={this.clearUsers}/>
-          <Users userData={this.state.users} loading={this.state.loading}/>
+          <Alert alert={alert}/> 
+          <Search searchUsers={this.searchUsers} showClear={(users.length > 0)?true:false} clearUsers={this.clearUsers} setAlert={this.setAlert}/>
+          <Users userData={users} loading={loading}/>
         </div>
       </div>
     );
