@@ -17,6 +17,8 @@ class Search extends Component {
        return this.props.searchUsers(this.state.text);
     }
 
+    
+
     render() {
         return (
             <div>
@@ -24,6 +26,7 @@ class Search extends Component {
                     onChange={this.onInputChange}
                     />
                     <button onClick={this.submit} className="btn btn-dark btn-block">Search</button>
+                    
             </div>
         );
     }
