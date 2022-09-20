@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-export default function Alert() {
-    
-}
-=======
 import React from 'react'
 
 const Alert = (props) => {
@@ -16,5 +11,4 @@ const Alert = (props) => {
   )
 }
 
-export default Alert
->>>>>>> be7c8d4b4233d9253b397fc5fd798a76a838dbb3
+export default Alert;
