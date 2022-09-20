@@ -17,6 +17,10 @@ class Search extends Component {
        return this.props.searchUsers(this.state.text);
     }
 
+    clear = () => {
+        return this.props.clearUsers();
+    }
+
     
 
     render() {
@@ -26,6 +30,8 @@ class Search extends Component {
                     onChange={this.onInputChange}
                     />
                     <button onClick={this.submit} className="btn btn-dark btn-block">Search</button>
+
+                    {this.props.showClear && <button onClick={this.clear} className="btn btn-light btn-block">Clear</button>}
                     
             </div>
         );
