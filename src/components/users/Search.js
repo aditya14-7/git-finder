@@ -23,12 +23,6 @@ class Search extends Component {
         return this.props.clearUsers();
     }
 
-    clear = () => {
-        return this.props.clearUsers();
-    }
-
-    
-
     render() {
         return (
             <div>
@@ -36,15 +30,9 @@ class Search extends Component {
                     onChange={this.onInputChange}
                     />
                     <button onClick={this.submit} className="btn btn-dark btn-block">Search</button>
-<<<<<<< HEAD
-
-                    {this.props.showClear && <button onClick={this.clear} className="btn btn-light btn-block">Clear</button>}
-                    
-=======
                     
                     {this.props.showClear && <button onClick={this.clear} className="btn btn-light btn-block">Clear</button>}
 
->>>>>>> be7c8d4b4233d9253b397fc5fd798a76a838dbb3
             </div>
         );
     }
