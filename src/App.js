@@ -1,10 +1,12 @@
 import './App.css';
-import React, { Component } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
 import Navbar from './components/layouts/Navbar';
 import Users from './components/users/Users';
 import axios from 'axios';
 import Search from './components/users/Search';
 import Alert from './components/layouts/Alert';
+import About from './components/pages/About';
 
 class App extends Component {
   state = {
@@ -54,14 +56,27 @@ class App extends Component {
   render() {
     const {alert, users, loading} = this.state;
     return (
-      <div className='App'>
+      <BrowserRouter>
+        <div className='App'>
         <Navbar title='Git Finder' icon='fab fa-github' />
         <div className='container'>
           <Alert alert={alert}/>
-          <Search searchUsers={this.searchUsers} showClear={(users.length > 0) ? true : false} clearUsers={this.clearUsers} setAlert={this.setAlert}/>
+          
+          <Routes>
+
+            <Route exact path='/' element={<Fragment>
+              <Search searchUsers={this.searchUsers} showClear={(users.length > 0) ? true : false} clearUsers={this.clearUsers} setAlert={this.setAlert}/>
           <Users userData={users} loading={loading}/>
+            </Fragment>}>            
+            </Route>
+
+            <Route path='/about' element={<About/>}></Route>
+
+          </Routes>
+
         </div>
       </div>
+      </BrowserRouter>
     );
   }
 }

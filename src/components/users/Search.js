@@ -31,7 +31,7 @@ class Search extends Component {
                     />
                     <button onClick={this.submit} className="btn btn-dark btn-block">Search</button>
                     
-                    {this.props.showClear && <button onClick={this.clear} className="btn btn-light btn-block">Clear</button>}
+                    {this.props.showClear && <button onClick={this.clear} className="btn my-1 btn-light btn-block">Clear</button>}
 
             </div>
         );
