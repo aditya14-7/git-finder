@@ -5,7 +5,7 @@ const Loader = () => {
     return (
         <Fragment>
             <center>
-                <img src={spinner} alt='Loading...' style={{ width: '5rem', margin: '19rem auto', display: 'block' }} />
+                <img src={spinner} alt='Loading...' style={{ width: '5rem', margin: '10rem auto', display: 'block' }} />
             </center>
         </Fragment>
     )
