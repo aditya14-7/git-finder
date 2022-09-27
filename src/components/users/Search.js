@@ -1,40 +1,35 @@
-import axios from "axios";
-import React, { Component } from "react";
+import React, { useState, useContext } from "react";
+import GithubContext from "../../contexts/github/githubContext";
 
-class Search extends Component {
-    state = {
-        text: ''
-    };
+const Search = (props) => {
+    const githubContext = useContext(GithubContext);
+    const [text, setText] = useState('');
 
-    onInputChange = event => {
-        this.setState({
-            text: event.target.value
-        });
+    const onInputChange = event => {
+        setText(event.target.value);
     }
 
-    submit = e => {
-        if(this.state.text === ''){
-            return this.props.setAlert({msg: 'Please provide input', type: 'light'});
+    const submit = () => {
+        if(text === ''){
+            return props.setAlert({msg: 'Please provide input', type: 'light'});
         }
-        return this.props.searchUsers(this.state.text);
+        return githubContext.searchUsers(text);
     }
 
-    clear = () => {
-        return this.props.clearUsers();
+    const clear = () => {
+        return githubContext.clearUsers();
     }
 
-    render() {
-        return (
-            <div>
-                    <input type="text" name="text" placeholder="Search here..." 
-                    onChange={this.onInputChange}
-                    />
-                    <button onClick={this.submit} className="btn btn-dark btn-block">Search</button>
-                    
-                    {this.props.showClear && <button onClick={this.clear} className="btn my-1 btn-light btn-block">Clear</button>}
+    return (
+        <div>
+                <input type="text" name="text" placeholder="Search here..." 
+                onChange={onInputChange}
+                />
+                <button onClick={submit} className="btn btn-dark btn-block">Search</button>
+                
+                {props.showClear && <button onClick={clear} className="btn btn-light btn-block">Clear</button>}
 
-            </div>
-        );
-    }
+        </div>
+    );
 }
 export default Search;
